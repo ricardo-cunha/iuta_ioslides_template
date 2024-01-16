@@ -1560,6 +1560,11 @@ slides > slide {
   background-color: white;
 }
 
+.forceBreak {
+  -webkit-column-break-after: always;
+  break-after: column;
+}
+
 /* Code changed from https://github.com/matteocourthoud/ioslides-theme/blob/main/src/custom.css */ 
 pre {
   width: auto !important;

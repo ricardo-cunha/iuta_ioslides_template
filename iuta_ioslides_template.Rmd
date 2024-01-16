@@ -23,7 +23,7 @@ always_allow_html: yes
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, comment = '',  fig.align = 'center')
+knitr::opts_chunk$set(echo = FALSE, comment = '',  fig.align = 'center', message = FALSE)
 ```
 
 ## R Markdown
@@ -102,6 +102,28 @@ fig
 <br>
 
 More information about plotly can be found in the [Plotly R Open Source Graphing Library](https://plotly.com/r/) website.
+
+## Slide with forced brake column {.flexbox .vcenter}
+
+<div class="columns-2">
+
+```{r, echo=TRUE}
+data.frame(a = 1:2, b = 3:4)
+```
+
+<br>
+
+```{r echo=TRUE, results='hide'}
+1:5
+```
+
+<p class="forceBreak"></p>
+
+```{r, echo=TRUE}
+plot(1:10)
+```
+
+</div>
 
 ## Slide with a table
 

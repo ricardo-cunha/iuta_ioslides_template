@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html$if(lang)$ lang="$lang$" xml:lang="$lang$"$endif$$if(dir)$ dir="$dir$"$endif$>
+<head>
+  <title>$if(title-prefix)$$title-prefix$ - $endif$$pagetitle$</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="generator" content="pandoc" />
+
+
+$if(event-meta)$
+  <meta name="event" content="$event-meta$" />
+$endif$
+
+
+
+$if(date-meta)$
+  <meta name="date" content="$date-meta$" />
+$endif$
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <base target="_blank">
+
+  <script type="text/javascript">
+    var SLIDE_CONFIG = {
+      // Slide settings
+      settings: {
+        $if(title)$
+        title: '$title$',
+        $endif$
+        $if(subtitle)$
+        subtitle: '$subtitle$',
+        $endif$
+        $if(date)$
+        date: '$date$',
+        $endif$
+        event: '$event$',
+        format: '$output.ioslides_presentation.format$',
+        useBuilds: true,
+        usePrettify: true,
+        enableSlideAreas: true,
+        enableTouch: true,
+        $if(analytics)$
+        analytics: '$analytics$',
+        $endif$
+        $if(logo)$
+        favIcon: '$logo$',
+        $endif$
+      },
+
+      // Author information
+      presenters: [
+      $for(author)$
+      {
+        name: $if(author.name)$ '$author.name$' $else$ '$author$' $endif$,
+        email: '$author.email$',
+        affiliation: '$author.affiliation$',
+        company: '$author.company$',
+        gplus: '$author.gplus$',
+        twitter: '$author.twitter$',
+        www: '$author.www$',
+        github: '$author.github$'
+      },
+      $endfor$
+      ]
+    };
+  </script>
+
+$for(header-includes)$
+  $header-includes$
+$endfor$
+
+  <style type="text/css">
+
+    b, strong {
+      font-weight: bold;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    summary {
+      display: list-item;
+    }
+
+    details > summary > p:only-child {
+      display: inline;
+    }
+
+    slides > slide {
+      -webkit-transition: all $transition$s ease-in-out;
+      -moz-transition: all $transition$s ease-in-out;
+      -o-transition: all $transition$s ease-in-out;
+      transition: all $transition$s ease-in-out;
+    }
+
+    .auto-fadein {
+      -webkit-transition: opacity 0.6s ease-in;
+      -webkit-transition-delay: $transition$s;
+      -moz-transition: opacity 0.6s ease-in $transition$s;
+      -o-transition: opacity 0.6s ease-in $transition$s;
+      transition: opacity 0.6s ease-in $transition$s;
+      opacity: 0;
+    }
+    /* https://github.com/ropensci/plotly/pull/524#issuecomment-468142578 */
+    slide:not(.current) .plotly.html-widget{
+      display: block;
+    }
+
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    $if(quotes)$
+    q { quotes: "“" "”" "‘" "’"; }
+    $endif$
+    $if(highlighting-css)$
+    $highlighting-css$
+    $endif$
+    $if(displaymath-css)$
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    $endif$
+    
+    slides > slide:not(.nobackground):before {
+      font-size: 12pt;
+      content: "";
+      position: absolute;
+      bottom: 20px;
+      background: url('ioslides_iuta/iuta-logo.png') no-repeat 0 50%;
+      -webkit-background-size: 50px 50px;
+      -moz-background-size: 50px 50px;
+      -o-background-size: 50px 50px;
+      background-size: 50px 50px;
+      padding-top: 2%;
+      padding-left: 60px;
+      /*height: 30px;*/
+      line-height: 1.9;
+      left: initial;
+      right: 0;
+      top: 0;
+      width: 50px;
+      height: 50px;
+    }
+    
+    /* line 147, ../scss/default.scss */
+    slides > slide:not(.nobackground):after {
+      font-size: 12pt;
+      content: attr(data-slide-num) "/" attr(data-total-slides);
+      position: absolute;
+      bottom: 0;
+      margin-bottom: 20px;
+      width: 90%;
+      text-align: right;
+      right: 60px;
+      left: 60px;
+      line-height: 1.9;
+      border-top: 2px solid #254C8E;
+      padding-top: 5px;
+    }
+    
+  </style>
+
+$for(css)$
+  <link rel="stylesheet" href="$css$" $if(html5)$$else$type="text/css" $endif$/>
+$endfor$
+
+</head>
+
+<body style="opacity: 0">
+
+$if(widescreen)$
+<slides class="layout-widescreen">
+$else$
+<slides>
+$endif$
+
+<script>
+  var formatMeta = SLIDE_CONFIG.settings.format;
+  
+  if (formatMeta === '16:9') {
+    document.write(`
+      <style>
+        slides.layout-faux-widescreen > slide {
+          padding: 40px 160px;
+        }
+
+        slides.layout-widescreen > slide,
+        slides.layout-faux-widescreen > slide {
+          margin-left: -622px;
+          width: 1244.444px;
+        }
+      </style>
+    `);
+  }
+  
+  if (formatMeta === '16:10') {
+    document.write(`
+      <style>
+        slides.layout-faux-widescreen > slide {
+            padding: 40px 160px;
+        }
+
+        slides.layout-widescreen > slide,
+        slides.layout-faux-widescreen > slide {
+            margin-left: -622px;
+            width: 1120px;
+        }
+      </style>
+    `);
+  }
+</script>
+
+$if(include-before)$
+  $for(include-before)$
+    $include-before$
+  $endfor$
+$else$
+  <slide class="title-slide segue nobackground">
+    $if(logo)$
+      <aside class="gdbar"><img src="$logo$"></aside>
+    $endif$
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      $if(date)$
+      <p id="dateContainer" style="margin-top: -5px; margin-left: 0; color: white;"></p>
+      $endif$
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      $if(subtitle)$<h2 data-config-subtitle><!-- populated from slide_config.json --></h2>$endif$
+      <!-- <p data-config-presenter></p> --> <!-- populated from slide_config.json -->
+      <p id="presentersContainer" ></p>
+      <p id="affiliationContainer" ></p>
+    </hgroup>
+  </slide>
+$endif$
+
+RENDERED_SLIDES
+
+$for(include-after)$
+  $include-after$
+$endfor$
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<style>
+div.footnotes {
+  position: absolute;
+  text-align: bottom;
+  bottom: 10%;
+  margin-bottom: 0px;
+  width: 80%;
+  font-size: 0.6em;
+}
+</style>
+
+<style>
+div.footer-right {
+  position: absolute;
+  bottom: 0;
+  color: #254C8E;
+  margin-bottom: 20px;
+  width: 80%;
+  line-height: 1.9;
+  text-align: right;
+  font-size: 0.6em;
+}
+</style>
+
+<style>
+div.footer-left {
+  position: absolute;
+  bottom: 0;
+  color: #254C8E;
+  margin-bottom: 20px;
+  width: 80%;
+  line-height: 1.9;
+  font-size: 0.6em;
+}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script src="ioslides_iuta/footnote.js"></script>
+
+<script src="ioslides_iuta/footer.js"></script>
+
+<script type="text/javascript">
+  (function () {
+    document.addEventListener('DOMContentLoaded', () => { 
+      var presenters = SLIDE_CONFIG.presenters;
+      var presentersContainer = document.getElementById('presentersContainer');
+  
+      var authorInfo = '';
+      var companies = [];
+  
+      for (var i = 0; i < presenters.length; i++) {
+        var author = presenters[i];
+        authorInfo += author.name;
+        
+        if (author.company != '') {
+          var compIndex = companies.indexOf(author.company);
+          
+          if (compIndex < 0) {
+            companies.push(author.company);
+            compIndex = companies.indexOf(author.company);
+          }
+          
+          authorInfo += '<sup>' + (compIndex + 1) + '</sup>';
+        }
+        
+        if (i < presenters.length - 2) authorInfo += ', ';
+        if (i == presenters.length - 2) authorInfo += ' and ';
+      }
+      
+      presentersContainer.innerHTML = authorInfo;
+    });
+  })();
+</script>
+
+<script type="text/javascript">
+  (function () {
+    document.addEventListener('DOMContentLoaded', () => { 
+      var presenters = SLIDE_CONFIG.presenters;
+      var affiliationContainer = document.getElementById('affiliationContainer');
+  
+      companyInfo = '';
+      var companies = [];
+  
+      for (var i = 0; i < presenters.length; i++) {
+        var author = presenters[i];
+        
+        if (author.company != '') {
+          var compIndex = companies.indexOf(author.company);
+          
+          if (compIndex < 0) {
+            companies.push(author.company);
+            compIndex = companies.indexOf(author.company);
+            companyInfo += '<sup>' + (compIndex + 1) + '</sup> ' + author.company + '<br>';
+          }
+        }
+      }
+      
+      affiliationContainer.innerHTML = companyInfo;
+    });
+  })();
+</script>
+
+<script type="text/javascript">
+  (function () {
+    document.addEventListener('DOMContentLoaded', () => { 
+      var dateContainer = document.getElementById('dateContainer');
+      var date = SLIDE_CONFIG.settings.date;
+      var event = SLIDE_CONFIG.settings.event;
+      if (event != '') date += '<br>' + event; 
+      dateContainer.innerHTML = date;
+    });
+  })();
+</script>
+
+$if(mathjax-url)$
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "$mathjax-url$";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+$endif$
+
+<!-- map slide visiblity events into shiny -->
+<script>
+  (function() {
+    if (window.jQuery) {
+       window.jQuery(document).on('slideleave', function(e) {
+         window.jQuery(e.target).trigger('hidden');
+      });
+       window.jQuery(document).on('slideenter', function(e) {
+         window.jQuery(e.target).trigger('shown');
+      });
+    }
+    if (window.Shiny) {
+      // Initialize slides when this script appears on the page, since it
+      // indicates that the <slides> markup has been fully loaded.
+      window.loadDeck();
+    }
+  })();
+</script>
+
+</body>
+</html>

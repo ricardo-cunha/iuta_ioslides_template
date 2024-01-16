@@ -1,0 +1,121 @@
+---
+title: "IUTA ioslides template"
+date: "2023-11-23"
+event: "Event"
+author:
+  - name: Ricardo Cunha
+    email: cunha@iuta.de
+    company: Institut für Umwelt & Energie, Technik & Analytik e. V. (IUTA), Duisburg, Germany
+  - name: Walter Laurito
+    company: Forschungszentrum Informatik (FZI), Karlsruhe, Germany
+  - name: Steffen Thoma
+    company: Forschungszentrum Informatik (FZI), Karlsruhe, Germany
+  - name: Thorsten Teutenberg
+    company: Institut für Umwelt & Energie, Technik & Analytik e. V. (IUTA), Duisburg, Germany
+output:
+  ioslides_presentation:
+    template: ioslides_iuta/template.html
+    css: ioslides_iuta/style.css
+    smaller: yes
+    widescreen: yes
+    format: 16:9
+always_allow_html: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, comment = '',  fig.align = 'center')
+```
+
+## R Markdown
+
+This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+## *ioslides* presentation
+
+The **ioslides** presentation in Rmarkdown enables the use of interactive assets and greatly boosts reproducibility of slides across presentations. A tutorial on ioslides presentation can be found in the [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html).
+
+The following single character keyboard shortcuts enable alternate display modes:
+
+- `f`: enable fullscreen mode (in the web browser press `ctrl + +` to zoom-in or `ctrl + -` to zoom-out)
+- `w`: toggle widescreen mode (format can be set to 16:9 or 16:10 in the output, as shown above for 16:9)
+- `o`: enable overview mode
+- `h`: enable code highlight mode
+- `p`: show presenter notes
+
+Pressing `Esc` exits all of these modes. See the sections below on Code Highlighting and Presenter Mode for additional detail on those modes.
+
+## Slide with Bullets and Footnotes
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+See auto numbering for <footnote content = "The counter is not set back and continues on the next slide.">footnotes</footnote>
+
+Another <footnote content = "The other footnote!">footnote</footnote>.
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure, fig.width=9}
+plot(pressure)
+```
+
+More information about the base R plot system can be found in the [Exploratory Data Analysis with R](https://bookdown.org/rdpeng/exdata/the-base-plotting-system-1.html) eBook.
+
+## Slide with an interactive plot
+
+```{r plotly, message=FALSE, fig.align='center'}
+library(plotly)
+
+fig <- plot_ly(
+  data = iris,
+  x = ~Sepal.Length,
+  y = ~Petal.Length,
+  type = 'scatter',
+  mode = 'markers',
+  marker = list(
+    size = 10,
+    color = 'rgba(255, 182, 193, .9)',
+    line = list(
+      color = 'rgba(152, 0, 0, .8)',
+      width = 2)
+  )
+)
+
+fig <- fig %>% layout(
+  title = 'Styled Scatter',
+  yaxis = list(zeroline = FALSE),
+  xaxis = list(zeroline = FALSE)
+)
+
+fig
+```
+
+<br>
+
+More information about plotly can be found in the [Plotly R Open Source Graphing Library](https://plotly.com/r/) website.
+
+## Slide with a table
+
+TODO
+
+
+## Slide with an interactive table
+
+TODO
+
+
+## Slide with graphics
+
+```{r echo=FALSE, fig.align = "center", out.width='60%', fig.cap="The StreamFind logo."}
+knitr::include_graphics("ioslides_iuta/StreamFind_logo.png")
+```
+

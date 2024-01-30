@@ -434,12 +434,8 @@ h1, h2, h3 {
 
 /* line 280, ../scss/default.scss */
 h2 {
-  /*font-size: 45px;
-  line-height: 65px;
-  letter-spacing: -2px;
-  color: #515151;*/
   color: #254C8E;
-  font-size: 27pt !important;
+  font-size: 27pt;
   margin-top: -2%;
   margin-bottom: 20px;
   margin-left: 0;
@@ -1236,28 +1232,18 @@ article.smaller q:before, article.smaller q:after {
   bottom: 225px;
 }
 
-/* line 826, ../scss/default.scss */
-.thank-you-slide {
-  background: #4387fd !important;
-  color: white;
-}
-/* line 830, ../scss/default.scss */
-.thank-you-slide h2 {
-  font-size: 60px;
-  color: inherit;
-}
 /* line 835, ../scss/default.scss */
-.thank-you-slide article > p {
+/*.thank-you-slide article > p {
   margin-top: 2em;
   font-size: 20pt;
-}
+}*/
 /* line 840, ../scss/default.scss */
-.thank-you-slide > p {
+/*.thank-you-slide > p {
   position: absolute;
   bottom: 80px;
   font-size: 24pt;
   line-height: 1.3;
-}
+}*/
 
 /* line 848, ../scss/default.scss */
 aside.gdbar {
@@ -1336,8 +1322,8 @@ aside.gdbar img {
   line-height: 1.4;
   letter-spacing: -3px;
   color: White;
-  position: fixed;
-  bottom: 50%;
+  position: absolute;
+  top: 20%;
 }
 /* line 898, ../scss/default.scss */
 .title-slide hgroup h2 {
@@ -1540,18 +1526,34 @@ input {
 
 /* Slide: format slide title with logos and banner */
 slides > slide.title-slide {
-  background-image: url('iuta-logo_claim.png'), url('blue_banner_smaller.png'), url('logo_uni.svg'), url('logo_jrf.jpg'), url('logo_aif.jpg'), url(StreamFind_logo.png);
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
-  background-position: 5% 4%, 50% 50%, 65% 95%, 80% 95%, 95% 95%, 95% 4%;
-  background-size: 27%, 160%, 10%, 8%, 10%, 25%;
+  background-image: url('iuta-logo_claim.png'), url('blue_banner_smaller.png'), url('logo_uni.svg'), url('logo_jrf.jpg'), url('logo_aif.jpg'), url('logo_bmbf.jpg'), url('logo_eu.jpg'), url(StreamFind_logo.png);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position: 5% 4%, 50% 50%, 58% 95%, 68% 95%, 78% 95%, 88% 95%, 98% 95%, 95% 4%;
+  background-size: 27%, 160%, 6%, 6%, 6%, 8%, 6%, 25%;
   background-color: white !important;
 }
 
 slides.layout-widescreen > slide.title-slide {
-  background-image: url('iuta-logo_claim.png'), url('blue_banner_smaller.png'), url('logo_uni.svg'), url('logo_jrf.jpg'), url('logo_aif.jpg'), url(StreamFind_logo.png);
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
-  background-position: 5% 4%, 50% 50%, 65% 95%, 80% 95%, 95% 95%, 95% 4%;
-  background-size: 20%, 115%, 10%, 8%, 10%, 18%;
+  background-image: url('iuta-logo_claim.png'), url('blue_banner_smaller.png'), url('logo_uni.svg'), url('logo_jrf.jpg'), url('logo_aif.jpg'), url('logo_bmbf.jpg'), url('logo_eu.jpg'), url(StreamFind_logo.png);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position: 5% 4%, 50% 50%, 58% 95%, 68% 95%, 78% 95%, 90% 98%, 98% 98%, 95% 4%;
+  background-size: 20%, 115%, 7%, 7%, 7%, 12%, 7%, 18%;
+  background-color: white !important;
+}
+
+slides > slide#thank-you-slide {
+  background-image: url('iuta-logo_claim.png'), url('blue_banner_smaller.png'), url('logo_uni.svg'), url('logo_jrf.jpg'), url('logo_aif.jpg'), url('logo_bmbf.jpg'), url('logo_eu.jpg'), url(StreamFind_logo.png);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position: 5% 4%, 50% 50%, 58% 85%, 68% 85%, 78% 85%, 88% 85%, 98% 85%, 95% 4%;
+  background-size: 27%, 160%, 6%, 6%, 6%, 8%, 6%, 25%;
+  background-color: white !important;
+}
+
+slides.layout-widescreen > slide#thank-you-slide {
+  background-image: url('iuta-logo_claim.png'), url('blue_banner_smaller.png'), url('logo_uni.svg'), url('logo_jrf.jpg'), url('logo_aif.jpg'), url('logo_bmbf.jpg'), url('logo_eu.jpg'), url(StreamFind_logo.png);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position: 5% 4%, 50% 50%, 58% 87%, 68% 87%, 78% 87%, 90% 87%, 98% 87%, 95% 4%;
+  background-size: 20%, 115%, 7%, 7%, 7%, 12%, 7%, 18%;
   background-color: white !important;
 }
 
@@ -1595,4 +1597,26 @@ article {
 
 li {
   color: #377E2D;
+}
+
+#thank-you p {
+  color: white;
+  line-height: 1.9;
+  font-size: 35pt;
+}
+
+.thank-you-hgroup h2 {
+  color: Black;
+  font-size: 35pt;
+  margin-top: 5%;
+  margin-bottom: 20px;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
+  border-bottom: none;
+  padding-bottom: 10px;
+}
+
+.thank-you-hgroup footnotes {
+  border-top: 2px solid white;
 }

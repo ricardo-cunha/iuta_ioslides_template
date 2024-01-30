@@ -249,6 +249,16 @@ $endfor$
 </slides>
 
 <style>
+
+slides > slide#thank-you-slide::after {
+  border-top: 2px solid white;
+  content: " ";
+}
+
+slides > slide#thank-you-slide::before {
+  background: none;
+}
+
 div.footnotes {
   position: absolute;
   text-align: bottom;
@@ -270,6 +280,18 @@ div.footer-right {
   text-align: right;
   font-size: 0.6em;
 }
+
+#thank-you-slide div.footer-right {
+  position: absolute;
+  bottom: 0;
+  color: #254C8E;
+  margin-bottom: 45px;
+  width: 80%;
+  line-height: 1.9;
+  text-align: left;
+  font-size: 0.6em;
+}
+
 </style>
 
 <style>
@@ -349,6 +371,37 @@ div.footer-left {
       affiliationContainer.innerHTML = companyInfo;
     });
   })();
+</script>
+
+<script type="text/javascript">
+(function () {
+  document.addEventListener('DOMContentLoaded', function() {
+    var article = document.querySelector("#thank-you");
+  
+   if (article) {
+     
+    console.log('Article found:', article);
+    
+    var slide = article.closest('slide');
+
+    // Check if the slide is found
+    if (slide) {
+      console.log('Slide found:', slide);
+      
+      slide.id = 'thank-you-slide';
+      
+      // Find the hgroup within the slide and add a class to it
+      var hgroup = slide.querySelector('hgroup');
+      
+      if (hgroup) {
+        console.log('Hgroup found:', hgroup);
+        
+        hgroup.classList.add('thank-you-hgroup');
+      }
+    }
+  }
+  });
+})();
 </script>
 
 <script type="text/javascript">

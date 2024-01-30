@@ -141,3 +141,8 @@ TODO
 knitr::include_graphics("ioslides_iuta/StreamFind_logo.png")
 ```
 
+## {#thank-you .flexbox .vcenter}
+
+Thank you for your attention  
+Questions are very welcome!
+

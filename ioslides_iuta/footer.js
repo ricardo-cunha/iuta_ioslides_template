@@ -12,6 +12,6 @@ $(document).ready(function() {
   $('slide:not(.backdrop):not(.title-slide)').append('<div class=\"footer-left\">');
   var date = SLIDE_CONFIG.settings.date;
   var event = SLIDE_CONFIG.settings.event;
-  if (event != '') date += ', ' + event; 
+  if (event != '') date += ' | ' + event; 
   $('slide:not(.backdrop):not(.title-slide)').children('div.footer-left').html(date);
 });

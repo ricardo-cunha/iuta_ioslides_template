@@ -1,7 +1,7 @@
 ---
-title: "IUTA ioslides template"
-date: "2023-11-23"
-event: "Event"
+title: "IUTA ioslides"
+date: "2024-03-04"
+event: "Event Example"
 author:
   - name: Ricardo Cunha
     email: cunha@iuta.de
@@ -16,10 +16,12 @@ output:
   ioslides_presentation:
     template: ioslides_iuta/template.html
     css: ioslides_iuta/style.css
-    smaller: yes
     widescreen: yes
     format: 16:9
 always_allow_html: yes
+runtime: Shiny
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -32,7 +34,7 @@ This is an R Markdown presentation. Markdown is a simple formatting syntax for a
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
 
-## *ioslides* presentation
+## *ioslides* presentation {.smaller}
 
 The **ioslides** presentation in Rmarkdown enables the use of interactive assets and greatly boosts reproducibility of slides across presentations. A tutorial on ioslides presentation can be found in the [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html).
 
@@ -103,7 +105,7 @@ fig
 
 More information about plotly can be found in the [Plotly R Open Source Graphing Library](https://plotly.com/r/) website.
 
-## Slide with forced brake column {.flexbox .vcenter}
+## Slide with forced brake column {.smaller .flexbox .vcenter}
 
 <div class="columns-2">
 
@@ -125,20 +127,85 @@ plot(1:10)
 
 </div>
 
-## Slide with a table
+## Slide with a manually added table {.smaller}
 
-TODO
+Right   Left     Center   Default 
+------- ------ ---------- ------- 
+    12    12        hmmm        12 
+    123   123        123       123 
+    1     1            1         1
+
+<br>
+
+or
+
+<br>
+
++---------------+---------------+--------------------+
+| Fruit         | Price         | Advantages         |
++===============+===============+====================+
+| Bananas       | $1.34         | - built-in wrapper |
+|               |               | - bright color     |
++---------------+---------------+--------------------+
+| Oranges       | $2.10         | - cures scurvy     |
+|               |               | - tasty            |
++---------------+---------------+--------------------+
+
+<br>
+
+More information in https://dereksonderegger.github.io/570L/15-rmarkdown-tricks.html.
+
+## Slide with a table from an object
+
+```{r}
+library(kableExtra)
+
+head(iris) %>%
+  kbl() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+```
+
+<br>
+
+<br>
 
 
-## Slide with an interactive table
+More information in https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html.
 
-TODO
+## Slide with formulas
 
+Formula written in markdown:
+
+<br>
+
+$$z_i = \frac{z_i-\bar{x}}{\sigma / \sqrt{n}}$$
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+More information in https://dereksonderegger.github.io/570L/15-rmarkdown-tricks.html.
 
 ## Slide with graphics
 
+<br>
+
 ```{r echo=FALSE, fig.align = "center", out.width='60%', fig.cap="The StreamFind logo."}
 knitr::include_graphics("ioslides_iuta/StreamFind_logo.png")
+```
+
+## Slide with animated flow chart (HTML)
+
+```{r}
+htmltools::tags$iframe(
+  title = "FlowDiagram",
+  src = "flowdiagram.html",
+  style = "width: 1100px; height: 600px; border: none; margin: 0 auto"
+)
 ```
 
 ## {#thank-you .flexbox .vcenter}
